@@ -105,7 +105,7 @@ climate::ClimateTraits GreeClimate::traits() {
       climate::CLIMATE_FAN_HIGH
   });
 
-  // traits.set_supported_swing_modes(this->supported_swing_modes_);
+  traits.set_supported_swing_modes(this->supported_swing_modes_);
   traits.set_supports_current_temperature(true);
   traits.set_supports_two_point_target_temperature(false);
 
@@ -113,7 +113,7 @@ climate::ClimateTraits GreeClimate::traits() {
 
   traits.add_supported_preset(climate::CLIMATE_PRESET_NONE);
   traits.add_supported_preset(climate::CLIMATE_PRESET_BOOST);
-  // traits.add_supported_preset(climate::CLIMATE_PRESET_SLEEP);
+  traits.add_supported_preset(climate::CLIMATE_PRESET_SLEEP);
 
   return traits;
 }
@@ -185,7 +185,7 @@ void GreeClimate::read_state_(const uint8_t *data, uint8_t size) {
       ESP_LOGW(TAG, "Unknown AC mode&FAN: %s", data[MODE]);
   }
 
-  /*
+  
   switch (data[SWING]) {
     case AC_SWING_OFF:
       this->swing_mode = climate::CLIMATE_SWING_OFF;
@@ -203,7 +203,7 @@ void GreeClimate::read_state_(const uint8_t *data, uint8_t size) {
       this->swing_mode = climate::CLIMATE_SWING_BOTH;
       break;
   }
-  */
+  
 
   switch (data[10]) {
     case 7:
