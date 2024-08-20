@@ -8,7 +8,7 @@
 namespace esphome {
 namespace gree {
 
-enum SwingMode : uint8_t { SWING_OFF = 0, SWING_VERTICAL = 1, SWING_HORIZONTAL = 2, SWING_BOTH = 3 };
+// enum SwingMode : uint8_t { SWING_OFF = 0, SWING_VERTICAL = 1, SWING_HORIZONTAL = 2, SWING_BOTH = 3 };
 
 enum ac_mode: uint8_t {
   AC_MODE_OFF = 0x10,
