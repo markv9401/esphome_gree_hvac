@@ -22,6 +22,7 @@ GreeClimate = gree_ns.class_(
 )
 
 ALLOWED_CLIMATE_SWING_MODES = {
+    "OFF": ClimateSwingMode.CLIMAGE_SWING_OFF,
     "BOTH": ClimateSwingMode.CLIMATE_SWING_BOTH,
     "VERTICAL": ClimateSwingMode.CLIMATE_SWING_VERTICAL,
     "HORIZONTAL": ClimateSwingMode.CLIMATE_SWING_HORIZONTAL,
@@ -40,9 +41,7 @@ CONFIG_SCHEMA = cv.All(
         {
             cv.GenerateID(): cv.declare_id(GreeClimate),
             cv.Optional(CONF_SUPPORTED_PRESETS): cv.ensure_list(validate_presets),
-            cv.Optional(CONF_SUPPORTED_SWING_MODES): cv.ensure_list(
-                validate_swing_modes
-            ),
+            cv.Optional(CONF_SUPPORTED_SWING_MODES): cv.ensure_list(validate_swing_modes),
         }
     )
     # wifi module polls every 300ms but do we need it so often? set it to 10s
