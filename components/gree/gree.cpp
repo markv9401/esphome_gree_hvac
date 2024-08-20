@@ -340,16 +340,16 @@ void GreeClimate::control(const climate::ClimateCall &call) {
   if (call.get_swing_mode().has_value()) {
     switch (call.get_swing_mode().value()) {
       case climate::CLIMATE_SWING_OFF:
-        data_write_[SWING] = SWING_OFF;
+        data_write_[SWING] = AC_SWING_OFF;
         break;
       case climate::CLIMATE_SWING_VERTICAL:
-        data_write_[SWING] = SWING_VERTICAL;
+        data_write_[SWING] = AC_SWING_VERTICAL;
         break;
       case climate::CLIMATE_SWING_HORIZONTAL:
-        data_write_[SWING] = SWING_HORIZONTAL;
+        data_write_[SWING] = AC_SWING_HORIZONTAL;
         break;
       case climate::CLIMATE_SWING_BOTH:
-        data_write_[SWING] = SWING_BOTH;
+        data_write_[SWING] = AC_SWING_BOTH;
         break;
     }
   }
