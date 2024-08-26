@@ -1,6 +1,32 @@
-# esphome_gree_hvac
-ESPHOME component for GREE-based HVAC (air conditioners made by Zhuhai Gree Group Co., Ltd.)
+# Example configuration
+```
+external_components:
+  - source:
+      type: git
+      url: https://github.com/markv9401/esphome_gree_hvac
+      ref: dev
+    components: [ gree ]
+    refresh: 0s
 
-The component is tested on following units:
-- Kentatsu Turin (KSGU26HZAN1/KSRU26HZAN1,KSGU35HZAN1/KSRU35HZAN1)
-- Lessar Enigma (LS-HE12KDE2/LU-HE12KDE2)
+uart:
+  id: ac_uart
+  tx_pin: GPIO1
+  rx_pin: GPIO3
+  baud_rate: 4800
+  data_bits: 8
+  parity: EVEN
+  stop_bits: 1
+
+climate:
+  - platform: gree
+    name: GreeHVAC_Bedroom
+    supported_presets:
+      - "NONE"
+      - "BOOST"
+      - "SLEEP"
+    supported_swing_modes:
+      - "VERTICAL"
+      - "HORIZONTAL"
+      - "BOTH"
+      - "OFF"
+```
